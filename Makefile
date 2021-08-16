@@ -1,0 +1,134 @@
+########################################
+# STM8 Makefile
+# wykys 2021
+########################################
+
+########################################
+# Target
+########################################
+TARGET = firmware
+
+########################################
+# Building variables
+########################################
+# Compile for debugging?
+# (1 ... yes, 0 ... no)
+DEBUG = 1
+# Optimization
+OPT =
+
+########################################
+# Paths
+########################################
+# Build path
+BUILD_DIR = build
+
+########################################
+# Sources
+########################################
+C_SOURCES = $(wildcard app/src/*.c)
+# C_SOURCES += drivers/src/stm8s_adc2.c
+# C_SOURCES += drivers/src/stm8s_awu.c
+# C_SOURCES += drivers/src/stm8s_beep.c
+# C_SOURCES += drivers/src/stm8s_can.c
+C_SOURCES += drivers/src/stm8s_clk.c
+# C_SOURCES += drivers/src/stm8s_exti.c
+# C_SOURCES += drivers/src/stm8s_flash.c
+C_SOURCES += drivers/src/stm8s_gpio.c
+# C_SOURCES += drivers/src/stm8s_i2c.c
+# C_SOURCES += drivers/src/stm8s_itc.c
+# C_SOURCES += drivers/src/stm8s_iwdg.c
+# C_SOURCES += drivers/src/stm8s_rst.c
+# C_SOURCES += drivers/src/stm8s_spi.c
+# C_SOURCES += drivers/src/stm8s_tim1.c
+# C_SOURCES += drivers/src/stm8s_tim2.c
+# C_SOURCES += drivers/src/stm8s_tim3.c
+# C_SOURCES += drivers/src/stm8s_tim4.c
+# C_SOURCES += drivers/src/stm8s_uart1.c
+# C_SOURCES += drivers/src/stm8s_uart3.c
+# C_SOURCES += drivers/src/stm8s_wwdg.c
+
+########################################
+# Tools
+########################################
+SDCC_PATH = /opt/sdcc/bin
+CC = $(SDCC_PATH)/sdcc
+
+########################################
+# Flags for compiler
+########################################
+
+# C defines
+C_DEFS =                        \
+-DSTM8S208                      \
+-DF_CPU=16000000L               \
+-DUSE_STDPERIPH_DRIVER
+
+# C includes
+C_INCLUDES =                    \
+-Iapp/inc                       \
+-Idrivers/inc
+
+# Target architecture specification
+MCU = -mstm8
+
+CFLAGS = $(MCU) $(OPT) $(C_INCLUDES) $(C_DEFS)
+
+ifeq ($(DEBUG), 1)
+CFLAGS += --debug
+endif
+
+# Generate dependency information
+CFLAGS += -MD
+
+########################################
+# Flags for linker
+########################################
+LIBS = -lstm8
+LIBDIR = -L/opt/sdcc/share/sdcc/lib/stm8
+LDFLAGS = --nostdlib $(MCU) $(LIBDIR) $(LIBS)
+
+# Default action: build all
+all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
+
+
+########################################
+# Build the application
+########################################
+OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.rel)))
+vpath %.c $(sort $(dir $(C_SOURCES)))
+
+$(BUILD_DIR)/%.rel: %.c Makefile | $(BUILD_DIR)
+	@$(CC) -o $@ $(CFLAGS) -c $<
+
+$(BUILD_DIR)/$(TARGET).hex: $(OBJECTS) Makefile
+	@$(CC) -o $@ $(LDFLAGS) $(OBJECTS)
+
+$(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
+	@$(CC) -o $@ $(LDFLAGS) --out-fmt-elf $(OBJECTS) $(C_INCLUDES)
+
+$(BUILD_DIR):
+	@mkdir $@
+
+########################################
+# Clean up
+########################################
+clean:
+	@rm -rf $(BUILD_DIR)/*
+
+########################################
+# Dependencies
+########################################
+-include $(wildcard $(BUILD_DIR)/*.d)
+
+########################################
+# Flash
+########################################
+flash:
+	@stm8flash -c stlinkv21 -p stm8s208t8 -s flash -w $(BUILD_DIR)/$(TARGET).hex
+build_and_flash: all flash
+
+########################################
+# File-independent actions
+########################################
+.PHONY: clean flash build_and_flash
