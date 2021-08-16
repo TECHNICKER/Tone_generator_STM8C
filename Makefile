@@ -14,8 +14,10 @@ TARGET = firmware
 # Compile for debugging?
 # (1 ... yes, 0 ... no)
 DEBUG = 1
-# Optimization
-OPT =
+# How to optimize the program?
+# OPT = --opt-code-speed
+OPT = --opt-code-size
+# OPT = --opt-code-balanced
 
 ########################################
 # Paths
@@ -86,7 +88,7 @@ CFLAGS += -MD
 ########################################
 LIBS = -lstm8
 LIBDIR = -L/opt/sdcc/share/sdcc/lib/stm8
-LDFLAGS = --nostdlib $(MCU) $(LIBDIR) $(LIBS)
+LDFLAGS = --nostdlib $(MCU) $(OPT) $(LIBDIR) $(LIBS)
 
 # Default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
