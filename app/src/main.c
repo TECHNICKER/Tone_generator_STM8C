@@ -1,8 +1,5 @@
 #include "stm8s.h"
 
-#define _ISOC99_SOURCE
-#define _GNU_SOURCE
-
 void main(void)
 {
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1); // FREQ MCU 16MHz
