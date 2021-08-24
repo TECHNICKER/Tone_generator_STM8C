@@ -1,4 +1,5 @@
 #include "stm8s.h"
+#include "__assert__.h"
 
 void main(void)
 {
@@ -13,4 +14,3 @@ void main(void)
     }
 }
 
-#include "__assert__.h"
