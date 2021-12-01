@@ -53,7 +53,16 @@ C_SOURCES += drivers/src/stm8s_gpio.c
 ########################################
 # Tools
 ########################################
-SDCC_PATH = /opt/sdcc/bin
+ifeq ($(OS),Windows_NT)
+    SDCC_PATH = "/c/Program Files/SDCC/bin"
+	CC = $(CC_ROOT)/bin/sdcc
+	OPENOCD = openocd -f interface/stlink.cfg -f target/stm8s.cfg -f stm8s-flash.cfg
+else
+   SDCC_PATH = /opt/sdcc/bin
+	CC = $(CC_ROOT)/bin/sdcc
+	OPENOCD = openocd -f interface/stlink-dap.cfg -f target/stm8s.cfg -f stm8s-flash.cfg
+endif
+
 CC = $(SDCC_PATH)/sdcc
 
 ########################################
@@ -127,11 +136,11 @@ clean:
 # Flash
 ########################################
 flash:
-	@openocd -f interface/stlink-dap.cfg -f target/stm8s.cfg -f stm8-flash.cfg -c "init" -c "program_device $(BUILD_DIR)/$(TARGET).elf 0"
+	@$(OPENOCD) -c "init" -c "program_device $(BUILD_DIR)/$(TARGET).elf 0"
 build_and_flash: all flash
 
 lunch_openocd:
-	@openocd -f interface/stlink-dap.cfg -f target/stm8s.cfg -c "init" -c "reset halt"
+	@$(OPENOCD) -c "init" -c "reset halt"
 
 ########################################
 # File-independent actions
