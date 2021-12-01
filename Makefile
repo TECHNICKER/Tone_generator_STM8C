@@ -101,7 +101,7 @@ OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.rel)))
 vpath %.c $(sort $(dir $(C_SOURCES)))
 
 $(BUILD_DIR)/%.rel: %.c Makefile | $(BUILD_DIR)
-	@$(CC) -o $@ $(CFLAGS) -c $<
+	@$(CC) -o $@ $(CFLAGS) --out-fmt-elf -c $<
 
 $(BUILD_DIR)/$(TARGET).hex: $(OBJECTS) Makefile
 	@$(CC) -o $@ $(LDFLAGS) $(OBJECTS)
@@ -127,8 +127,11 @@ clean:
 # Flash
 ########################################
 flash:
-	@stm8flash -c stlinkv21 -p stm8s208t8 -s flash -w $(BUILD_DIR)/$(TARGET).hex
+	@openocd -f interface/stlink-dap.cfg -f target/stm8s.cfg -f stm8-flash.cfg -c "init" -c "program_device $(BUILD_DIR)/$(TARGET).elf 0"
 build_and_flash: all flash
+
+lunch_openocd:
+	@openocd -f interface/stlink-dap.cfg -f target/stm8s.cfg -c "init" -c "reset halt"
 
 ########################################
 # File-independent actions
