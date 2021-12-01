@@ -54,16 +54,14 @@ C_SOURCES += drivers/src/stm8s_gpio.c
 # Tools
 ########################################
 ifeq ($(OS),Windows_NT)
-    SDCC_PATH = "/c/Program Files/SDCC/bin"
-	CC = $(CC_ROOT)/bin/sdcc
+    SDCC_PATH = "/c/Program Files/SDCC"
 	OPENOCD = openocd -f interface/stlink.cfg -f target/stm8s.cfg -f stm8s-flash.cfg
 else
-   SDCC_PATH = /opt/sdcc/bin
-	CC = $(CC_ROOT)/bin/sdcc
+   SDCC_PATH = /opt/sdcc/
 	OPENOCD = openocd -f interface/stlink-dap.cfg -f target/stm8s.cfg -f stm8s-flash.cfg
 endif
 
-CC = $(SDCC_PATH)/sdcc
+CC = $(SDCC_PATH)/bin/sdcc
 
 ########################################
 # Flags for compiler
@@ -96,11 +94,10 @@ CFLAGS += -MD
 # Flags for linker
 ########################################
 LIBS = -lstm8
-LIBDIR = -L/opt/sdcc/share/sdcc/lib/stm8
-LDFLAGS = --nostdlib $(MCU) $(OPT) $(LIBDIR) $(LIBS)
+LDFLAGS = $(MCU) $(OPT) $(LIBS)
 
 # Default action: build all
-all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
+all: $(BUILD_DIR)/$(TARGET).elf
 
 
 ########################################
@@ -111,9 +108,6 @@ vpath %.c $(sort $(dir $(C_SOURCES)))
 
 $(BUILD_DIR)/%.rel: %.c Makefile | $(BUILD_DIR)
 	@$(CC) -o $@ $(CFLAGS) --out-fmt-elf -c $<
-
-$(BUILD_DIR)/$(TARGET).hex: $(OBJECTS) Makefile
-	@$(CC) -o $@ $(LDFLAGS) $(OBJECTS)
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
 	@$(CC) -o $@ $(LDFLAGS) --out-fmt-elf $(OBJECTS) $(C_INCLUDES)
@@ -138,9 +132,6 @@ clean:
 flash:
 	@$(OPENOCD) -c "init" -c "program_device $(BUILD_DIR)/$(TARGET).elf 0"
 build_and_flash: all flash
-
-lunch_openocd:
-	@$(OPENOCD) -c "init" -c "reset halt"
 
 ########################################
 # File-independent actions
