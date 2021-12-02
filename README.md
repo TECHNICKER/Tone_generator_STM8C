@@ -59,7 +59,7 @@ Ze souboru `build/firmware.elf` zapíše obsah programové paměti do mikrokontr
 make flash
 ```
 
-### Kombinace předchozích dvou kroků
+### Kompilace s nahráním FW do MCU v jednom
 
 Tento příkaz se chová stejnějako posloupnost příkazů `make` následovaným `make flash`. Může vám tedy ušetřit psaní.
 
