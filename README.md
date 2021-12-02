@@ -73,7 +73,9 @@ VS Code jemocný textový editor, který se snadno přizpůsobí a rozšíří o
 
 ### Integrovaný terminál
 
-Přímo ve VS Code si můžete vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínánm mezi okny, zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové skratky `Ctrl` + `Shift` + `P`. To vyvolá přákazovou lištu, do které zadáme `Create New Terminal`. Pokud se s njakého záhadného důvodu nacházíte na platformě MS Windows, je třeba přepnout shell terminálu na `Git Bash`. To lzep rovést pomocí malé rozevírací šipecky v pravé části terminálu.
+Přímo ve VS Code si můžete vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínánm mezi okny, zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové skratky `Ctrl` + `Shift` + `P`. To vyvolá přákazovou lištu, do které zadáme `Create New Terminal`.
+
+⚠️ Pokud se s njakého záhadného důvodu nacházíte na platformě MS Windows, je třeba přepnout shell terminálu na `Git Bash`. To lzep rovést pomocí malé rozevírací šipecky v pravé části terminálu.
 
 ### Jak na našeptávání?
 
