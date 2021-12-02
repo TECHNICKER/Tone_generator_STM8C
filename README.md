@@ -16,7 +16,7 @@ git clone https://gitlab.com/wykys/stm8-tools.git
 
 ### Přejmenování
 
-Doporučuji si každý projekt vhodně nejlépe popisně pojmenovat, usnadní vám to život v budoucnu. Při výběru jména se preventivně vyvarujte použití diaktitiky. K přejmenování budeme používat příkaz `mv` (__Move__), který slouží k přejmenování, případně přesunu souborů.
+Doporučuji si každý projekt vhodně nejlépe popisně pojmenovat, usnadní vám to život v budoucnu. Při výběru jména se preventivně vyvarujte použití diakritiky. K přejmenování budeme používat příkaz `mv` (__Move__), který slouží k přejmenování, případně přesunu souborů.
 
 ```bash
 mv stm8-tools blikac
@@ -24,7 +24,7 @@ mv stm8-tools blikac
 
 ### Změna složky
 
-Příkaz `cd` (__Change Directory__) změní aktuální složku, vekteré se nacházíme za jinou. Tedy nám to umožní pohybu mezi složkami.
+Příkaz `cd` (__Change Directory__) změní aktuální složku, ve které se nacházíme za jinou. Tedy nám to umožní pohybu mezi složkami.
 
 ```bash
 # přejdeme do složky cesta_ke_slozce
@@ -37,7 +37,7 @@ cd
 
 ### VS Code
 
-Otevřeme editor VS Code v aktuální složce. Tečka symbolizuje aktuální adresář, můžeme však zadat cestu k libovolné složce nebo osuboru.
+Otevřeme editor VS Code v aktuální složce. Tečka symbolizuje aktuální adresář, můžeme však zadat cestu k libovolné složce nebo souboru.
 
 ```bash
 code .
@@ -61,7 +61,7 @@ make flash
 
 ### Kompilace s nahráním FW do MCU v jednom
 
-Tento příkaz se chová stejnějako posloupnost příkazů `make` následovaným `make flash`. Může vám tedy ušetřit psaní.
+Tento příkaz se chová stejně jako posloupnost příkazů `make` následovaný `make flash`. Může vám tedy ušetřit psaní.
 
 ```bash
 make build_and_flash
@@ -69,24 +69,24 @@ make build_and_flash
 
 ## Typy k VS Code
 
-VS Code jemocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce pomocírozšíření. Rozříšení se dají instalovat pomocí ikony bedny v postranním panelu.
+VS Code je mocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce díky rozšíření. Rozšíření se dají instalovat pomocí ikony bedny v postranním panelu.
 
 ### Integrovaný terminál
 
-Přímo ve VS Code si můžete vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínánm mezi okny, zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové skratky `Ctrl` + `Shift` + `P`. To vyvolá přákazovou lištu, do které zadáme `Create New Terminal`.
+Přímo ve VS Code si můžete vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínáním mezi okny. Zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové zkratky `Ctrl` + `Shift` + `P`. To vyvolá příkazovou lištu, do které zadáme `Create New Terminal`.
 
-⚠️ Pokud se s njakého záhadného důvodu nacházíte na platformě MS Windows, je třeba přepnout shell terminálu na `Git Bash`. To lzep rovést pomocí malé rozevírací šipecky v pravé části terminálu.
+⚠️ Pokud se s nějakého záhadného důvodu nacházíte na platformě MS Windows, je třeba přepnout shell terminálu na `Git Bash`. To lze provést pomocí malé rozevírací šiky v pravé části terminálu.
 
 ### Jak na našeptávání?
 
-Doporučuji nainstlaovat si rozšíření C/C++ od firmy Microsoft s podnadpisem _C/C++ IntelliSense, debugging, and code browsing._. Odkaz na [market place](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+Doporučuji nainstalovat si rozšíření C/C++ od firmy Microsoft s podnadpisem _C/C++ IntelliSense, debugging, and code browsing._. Odkaz na [market place](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
-Toto rozšíření vám zpřístupní mocnou funkci našeptávání, číž může rapidně zvíšit produktivitu práce i hledání chyb.
+Toto rozšíření vám zpřístupní mocnou funkci našeptávání, číž může rapidně zvýšit produktivitu práce i hledání chyb.
 
-Aby našeptávání funkovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle vaší platformy. Následují ukázky tohoto souboru:
+Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle vaší platformy. Následují ukázky tohoto souboru:
 
 <details>
-<summary>Ukázková verze pro Linux</summary>
+<summary> Ukázková verze pro Linux </summary>
 
 ```json
 {
@@ -117,7 +117,7 @@ Aby našeptávání funkovalo korektně, je třeba zkontrolovat soubor `.vscode/
 </details>
 
 <details>
-<summary>Ukázková verze pro MS Windows</summary>
+<summary> Ukázková verze pro MS Windows </summary>
 
 ```json
 {
@@ -150,7 +150,7 @@ Aby našeptávání funkovalo korektně, je třeba zkontrolovat soubor `.vscode/
 
 ## Instalace na MS Windows
 
-Pro korektní funkci toolchainu je třeba do sysétmu nainstalovat tyto proramy:
+Pro korektní funkci toolchainu je třeba do systému nainstalovat tyto programy:
 
 * git
 * bash
@@ -159,11 +159,11 @@ Pro korektní funkci toolchainu je třeba do sysétmu nainstalovat tyto proramy:
 * sdcc
 * vscode
 
-Vřele doporučuji k instalaci využít správcebalíčků https://chocolatey.org/, ten obsahuje vše co potřebujeme krom kompilátoru SDCC.
+Vřele doporučuji k instalaci využít správce balíčků https://chocolatey.org/, ten obsahuje vše co potřebujeme krom kompilátoru SDCC.
 
 ### Instalace Chocolatey
 
-Doporučuji použít oficiální postup, ten v doběpsaní tohoto manuálu byl následující:
+Doporučuji použít oficiální postup, ten v době psaní tohoto manuálu byl následující:
 
 Spusťe Windows PowerShell jako administrátor systému a do příkazové řádky zadejte tento příkaz, který nainstaluje Chocolatey:
 
@@ -171,11 +171,11 @@ Spusťe Windows PowerShell jako administrátor systému a do příkazové řádk
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
-Po  úspěšněinstalaci bude v systémudostupný příkaz `choco`. Díky němu můžeme nainstalovat většinu potřebného SW.
+Po  úspěšné instalaci bude v systému dostupný příkaz `choco`. Díky němu můžeme nainstalovat většinu potřebného SW.
 
 ### Instalace dostupného SW pomocí správce balíčků Chocolatey
 
-Do administrátorského PowerShellu zadejty tyto příkazy:
+Do administrátorského PowerShellu zadejte tyto příkazy:
 
 ```ps
 choco install git
@@ -184,10 +184,10 @@ choco install openocd
 choco install vscode
 ```
 
-Balíček `git` obsahuje i `bash`, ten tedy není v samostantém balíčku.
+Balíček `git` obsahuje i `bash`, ten tedy není v samostatném balíčku.
 
 ### Instalace kompilátoru SDCC
 
-Nakonec je třeba stánouta nainstalovat kompilátor `SDCC`, který sídlí na adrese http://sdcc.sourceforge.net/. Instalace probíhá prostřednictvím klasického klikacího formuláře.
+Nakonec je třeba stáhnout a nainstalovat kompilátor `SDCC`, který sídlí na adrese http://sdcc.sourceforge.net/. Instalace probíhá prostřednictvím klasického klikacího formuláře.
 
 
