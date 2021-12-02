@@ -2,7 +2,7 @@
 
 Šablona projektu k vývoji firmware pro mikrokontroléry STM8S.
 
-## Použití
+## Jak to používat, základní info
 
 Následují ukázky často používaných akcí / příkazů.
 
@@ -70,6 +70,10 @@ make build_and_flash
 ## Typy k VS Code
 
 VS Code jemocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce pomocírozšíření. Rozříšení se dají instalovat pomocí ikony bedny v postranním panelu.
+
+### Integrovaný terminál
+
+Přímo ve VS Code si můžete vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínánm mezi okny, zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové skratky `Ctrl` + `Shift` + `P`. To vyvolá přákazovou lištu, do které zadáme `Create New Terminal`. Pokud se s njakého záhadného důvodu nacházíte na platformě MS Windows, je třeba přepnout shell terminálu na `Git Bash`. To lzep rovést pomocí malé rozevírací šipecky v pravé části terminálu.
 
 ### Jak na našeptávání?
 
