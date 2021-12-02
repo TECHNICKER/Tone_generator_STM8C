@@ -67,7 +67,7 @@ Tento příkaz se chová stejně jako posloupnost příkazů `make` následovan�
 make build_and_flash
 ```
 
-## Typy k VS Code
+## Tipy k VS Code
 
 VS Code je mocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce díky rozšíření. Rozšíření se dají instalovat pomocí ikony bedny v postranním panelu.
 
