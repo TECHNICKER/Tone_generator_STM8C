@@ -66,3 +66,15 @@ Tento příkaz se chová stejnějako posloupnost příkazů `make` následovaný
 ```bash
 make build_and_flash
 ```
+
+## Typy k VS Code
+
+VS Code jemocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce pomocírozšíření. Rozříšení se dají instalovat pomocí ikony bedny v postranním panelu.
+
+### Jak na našeptávání?
+
+Doporučuji nainstlaovat si rozšíření C/C++ od firmy Microsoft s podnadpisem _C/C++ IntelliSense, debugging, and code browsing._. Odkaz na [market place](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+
+Toto rozšíření vám zpřístupní mocnou funkci našeptávání, číž může rapidně zvíšit produktivitu práce i hledání chyb.
+
+Aby našeptávání funkovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle vaší platformy.
