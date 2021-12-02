@@ -67,6 +67,23 @@ Tento příkaz se chová stejně jako posloupnost příkazů `make` následovan�
 make build_and_flash
 ```
 
+## Doporučený pracovní postup
+
+1. Naklonovat šablonu projektu
+2. Přejmenovat šablonu na jméno projektu
+3. Přejít do složky s projektem
+4. Otevřít projektovou složku ve VS Code
+5. Ve VS Code si otevřu terminál a zkontroluji si shell
+6. Kontrola konfigurace našeptávání `.vscode/c_cpp_properties.json`
+7. Můžu začít programovat
+
+```bash
+git clone https://gitlab.com/wykys/stm8-tools.git
+mv stm8-tools jmeno_projektu
+cd jmeno_projektu
+code .
+```
+
 ## Tipy k VS Code
 
 VS Code je mocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce díky rozšíření. Rozšíření se dají instalovat pomocí ikony bedny v postranním panelu.
