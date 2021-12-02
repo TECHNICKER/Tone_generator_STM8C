@@ -147,3 +147,43 @@ Aby našeptávání funkovalo korektně, je třeba zkontrolovat soubor `.vscode/
 ```
 
 </details>
+
+## Instalace na MS Windows
+
+Pro korektní funkci toolchainu je třeba do sysétmu nainstalovat tyto proramy:
+
+* git
+* bash
+* make
+* openocd
+* sdcc
+* vscode
+
+Vřele doporučuji k instalaci využít správcebalíčků https://chocolatey.org/, ten obsahuje vše co potřebujeme krom kompilátoru SDCC.
+
+### Instalace Chocolatey
+
+Doporučuji použít oficiální postup, ten v doběpsaní tohoto manuálu byl následující:
+
+Spusťe Windows PowerShell jako administrátor systému a do příkazové řádky zadejte tento příkaz, který nainstaluje Chocolatey:
+
+```ps
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+Po  úspěšněinstalaci bude v systémudostupný příkaz `choco`. Díky němu můžeme nainstalovat většinu potřebného SW.
+
+Do administrátorského PowerShellu zadejty tyto příkazy:
+
+```ps
+choco install git
+choco install make
+choco install openocd
+choco install vscode
+```
+
+Balíček `git` obsahuje i `bash`, ten tedy není v samostantém balíčku.
+
+Nakonec je třeba stánouta nainstalovat kompilátor `SDCC`, který sídlí na adrese http://sdcc.sourceforge.net/.
+
+
