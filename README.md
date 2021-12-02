@@ -173,6 +173,8 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 Po  úspěšněinstalaci bude v systémudostupný příkaz `choco`. Díky němu můžeme nainstalovat většinu potřebného SW.
 
+### Instalace dostupného SW pomocí správce balíčků Chocolatey
+
 Do administrátorského PowerShellu zadejty tyto příkazy:
 
 ```ps
@@ -184,6 +186,8 @@ choco install vscode
 
 Balíček `git` obsahuje i `bash`, ten tedy není v samostantém balíčku.
 
-Nakonec je třeba stánouta nainstalovat kompilátor `SDCC`, který sídlí na adrese http://sdcc.sourceforge.net/.
+### Instalace kompilátoru SDCC
+
+Nakonec je třeba stánouta nainstalovat kompilátor `SDCC`, který sídlí na adrese http://sdcc.sourceforge.net/. Instalace probíhá prostřednictvím klasického klikacího formuláře.
 
 
