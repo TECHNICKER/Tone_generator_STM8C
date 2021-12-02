@@ -77,4 +77,67 @@ Doporučuji nainstlaovat si rozšíření C/C++ od firmy Microsoft s podnadpisem
 
 Toto rozšíření vám zpřístupní mocnou funkci našeptávání, číž může rapidně zvíšit produktivitu práce i hledání chyb.
 
-Aby našeptávání funkovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle vaší platformy.
+Aby našeptávání funkovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle vaší platformy. Následují ukázky tohoto souboru:
+
+<details>
+<summary>Ukázková verze pro Linux</summary>
+
+```json
+{
+    "configurations": [
+        {
+            "name": "STM8",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/sdcc/share/sdcc/include/**",
+                "app/inc/**",
+                "drivers/inc/**"
+            ],
+            "defines": [
+                "STM8S208",
+                "USE_STDPERIPH_DRIVER",
+                "_SDCC_"
+            ],
+            "compilerPath": "/opt/sdcc/bin/sdcc",
+            "cStandard": "c99",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
+```
+
+</details>
+
+<details>
+<summary>Ukázková verze pro MS Windows</summary>
+
+```json
+{
+    "configurations": [
+        {
+            "name": "STM8",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Program Files/SDCC/include/**",
+                "app/inc/**",
+                "drivers/inc/**"
+            ],
+            "defines": [
+                "STM8S208",
+                "USE_STDPERIPH_DRIVER",
+                "_SDCC_"
+            ],
+            "compilerPath": "C:/ProgramData/chocolatey/bin/gcc.exe",
+            "cStandard": "c99",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
+
+```
+
+</details>
