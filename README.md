@@ -24,7 +24,7 @@ mv stm8-tools blikac
 
 ### Změna složky
 
-Příkaz `cd` (__Change Directory__) změní aktuální složku, ve které se nacházíme za jinou. Tedy nám to umožní pohybu mezi složkami.
+Příkaz `cd` (__Change Directory__) změní aktuální složku, ve které se nacházíme za jinou. Tedy nám to umožní pohyb mezi složkami.
 
 ```bash
 # přejdeme do složky cesta_ke_slozce
@@ -37,7 +37,7 @@ cd
 
 ### VS Code
 
-Otevřeme editor VS Code v aktuální složce. Tečka symbolizuje aktuální adresář, můžeme však zadat cestu k libovolné složce nebo souboru.
+Otevřeme editor VS Code v aktuální složce. __Tečka__ symbolizuje aktuální adresář, můžeme však zadat cestu k libovolné složce nebo souboru.
 
 ```bash
 code .
@@ -45,7 +45,7 @@ code .
 
 ### Kompilace projektu
 
-Vytvoří složku `build` a vní soubor `firmware.elf`, který obsahuje náš program.
+Cílem kompilace je vytvořit binární soubor, obsahující náš program, který budeme moci nahrát do mikrokontroléru. Pokud bude kompilace úspěšná, vytvoří se nám složka `build` a vní soubor `firmware.elf`, který obsahuje náš program. Kompilaci provedeme příkazem `make`.
 
 ```bash
 make
@@ -61,7 +61,7 @@ make flash
 
 ### Kompilace s nahráním FW do MCU v jednom
 
-Tento příkaz se chová stejně jako posloupnost příkazů `make` následovaný `make flash`. Může vám tedy ušetřit psaní.
+Tento příkaz se chová stejně jako posloupnost příkazů `make` následovaný `make flash`. Může nám tedy ušetřit psaní.
 
 ```bash
 make build_and_flash
@@ -73,7 +73,7 @@ make build_and_flash
 2. Přejmenovat šablonu na jméno projektu
 3. Přejít do složky s projektem
 4. Otevřít projektovou složku ve VS Code
-5. Ve VS Code si otevřu terminál a zkontroluji si shell
+5. Ve VS Code si otevřu terminál (a pokud jsme na Win zkontroluji si shell)
 6. Kontrola konfigurace našeptávání `.vscode/c_cpp_properties.json`
 7. Můžu začít programovat
 
@@ -86,11 +86,11 @@ code .
 
 ## Tipy k VS Code
 
-VS Code je mocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce díky rozšíření. Rozšíření se dají instalovat pomocí ikony bedny v postranním panelu.
+VS Code je mocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce díky rozšířením. Rozšíření se dají instalovat pomocí ikony bedny v postranním panelu.
 
 ### Integrovaný terminál
 
-Přímo ve VS Code si můžete vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínáním mezi okny. Zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové zkratky `Ctrl` + `Shift` + `P`. To vyvolá příkazovou lištu, do které zadáme `Create New Terminal`.
+Přímo ve VS Code se dá vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínáním mezi okny. Zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové zkratky `Ctrl` + `Shift` + `P`. To vyvolá příkazovou lištu, do které zadáme `Create New Terminal`.
 
 ⚠️ Pokud se s nějakého záhadného důvodu nacházíte na platformě MS Windows, je třeba přepnout shell terminálu na `Git Bash`. To lze provést pomocí malé rozevírací šiky v pravé části terminálu.
 
@@ -98,9 +98,9 @@ Přímo ve VS Code si můžete vytvořit terminál a ten používat ke kompilaci
 
 Doporučuji nainstalovat si rozšíření C/C++ od firmy Microsoft s podnadpisem _C/C++ IntelliSense, debugging, and code browsing._. Odkaz na [market place](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
-Toto rozšíření vám zpřístupní mocnou funkci našeptávání, číž může rapidně zvýšit produktivitu práce i hledání chyb.
+Toto rozšíření zpřístupní mocnou funkci našeptávání, číž můžeme rapidně zvýšit produktivitu naší práce i usnadnit hledání chyb.
 
-Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle vaší platformy. Následují ukázky tohoto souboru:
+Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle používané platformy. Následují ukázky tohoto souboru:
 
 <details>
 <summary> Ukázková verze pro Linux </summary>
@@ -182,7 +182,7 @@ Vřele doporučuji k instalaci využít správce balíčků https://chocolatey.o
 
 Doporučuji použít oficiální postup, ten v době psaní tohoto manuálu byl následující:
 
-Spusťe Windows PowerShell jako administrátor systému a do příkazové řádky zadejte tento příkaz, který nainstaluje Chocolatey:
+Spusťit Windows PowerShell jako administrátor systému a do příkazové řádky zadat tento příkaz, který nainstaluje Chocolatey:
 
 ```ps
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -192,7 +192,7 @@ Po  úspěšné instalaci bude v systému dostupný příkaz `choco`. Díky něm
 
 ### Instalace dostupného SW pomocí správce balíčků Chocolatey
 
-Do administrátorského PowerShellu zadejte tyto příkazy:
+Do administrátorského PowerShellu zadat tyto příkazy:
 
 ```ps
 choco install git
