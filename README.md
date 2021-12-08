@@ -1,6 +1,6 @@
 # STM8 Tools
 
-Šablona projektu k vývoji firmware pro mikrokontroléry STM8S.
+Šablona projektu k vývoji firmwaru pro mikrokontroléry z rodiny STM8S.
 
 ## Jak to používat, základní info
 
@@ -16,7 +16,7 @@ git clone https://gitlab.com/wykys/stm8-tools.git
 
 ### Přejmenování
 
-Doporučuji si každý projekt vhodně nejlépe popisně pojmenovat, usnadní vám to život v budoucnu. Při výběru jména se preventivně vyvarujte použití diakritiky. K přejmenování budeme používat příkaz `mv` (__Move__), který slouží k přejmenování, případně přesunu souborů.
+Doporučuji si každý projekt vhodně (nejlépe popisně) pojmenovat. Může to usnadnit život v budoucnu. Při výběru jména se preventivně vyvarujte použití diakritiky. K přejmenování budeme používat příkaz `mv` (__Move__), který slouží k přejmenování, případně přesunu souborů.
 
 ```bash
 mv stm8-tools blikac
@@ -24,7 +24,7 @@ mv stm8-tools blikac
 
 ### Změna složky
 
-Příkaz `cd` (__Change Directory__) změní aktuální složku, ve které se nacházíme za jinou. Tedy nám to umožní pohyb mezi složkami.
+Příkaz `cd` (__Change Directory__) změní aktuální složku, ve které se nacházíme, za jinou. Tedy nám to umožní pohyb mezi složkami.
 
 ```bash
 # přejdeme do složky cesta_ke_slozce
@@ -45,7 +45,7 @@ code .
 
 ### Kompilace projektu
 
-Cílem kompilace je vytvořit binární soubor, obsahující náš program, který budeme moci nahrát do mikrokontroléru. Pokud bude kompilace úspěšná, vytvoří se nám složka `build` a vní soubor `firmware.elf`, který obsahuje náš program. Kompilaci provedeme příkazem `make`.
+Cílem kompilace je vytvořit binární soubor, obsahující náš program, který budeme moci nahrát do mikrokontroléru. Pokud bude kompilace úspěšná, vytvoří se nám složka `build` a v ní soubor `firmware.elf`, který obsahuje náš program. Kompilaci provedeme příkazem `make`.
 
 ```bash
 make
@@ -53,7 +53,7 @@ make
 
 ### Nahrání FW do MCU
 
-Ze souboru `build/firmware.elf` zapíše obsah programové paměti do mikrokontroléru.
+Následující příkaz provede "flashnutí", tedy ze souboru `build/firmware.elf` zapíše obsah programové paměti pomocí programátoru / debugeru ST-Link do mikrokontroléru.
 
 ```bash
 make flash
@@ -73,9 +73,9 @@ make build_and_flash
 2. Přejmenovat šablonu na jméno projektu
 3. Přejít do složky s projektem
 4. Otevřít projektovou složku ve VS Code
-5. Ve VS Code si otevřu terminál (a pokud jsme na Win zkontroluji si shell)
-6. Kontrola konfigurace našeptávání `.vscode/c_cpp_properties.json`
-7. Můžu začít programovat
+5. Ve VS Code otevřít terminál (ve Win zkontrolovat shell)
+6. Ověřit konfiguraci našeptávání `.vscode/c_cpp_properties.json`
+7. Začít programovat
 
 ```bash
 git clone https://gitlab.com/wykys/stm8-tools.git
@@ -86,19 +86,19 @@ code .
 
 ## Tipy k VS Code
 
-VS Code je mocný textový editor, který se snadno přizpůsobí a rozšíří o další funkce díky rozšířením. Rozšíření se dají instalovat pomocí ikony bedny v postranním panelu.
+VS Code je mocný textový editor, který se snadno rozšíří o nové funkce díky rozšířením. Ta se dají instalovat pomocí ikony bedny v postranním panelu.
 
 ### Integrovaný terminál
 
-Přímo ve VS Code se dá vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas ztrávený přepínáním mezi okny. Zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové zkratky `Ctrl` + `Shift` + `P`. To vyvolá příkazovou lištu, do které zadáme `Create New Terminal`.
+Přímo ve VS Code se dá vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas strávený přepínáním mezi okny. Zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové zkratky `Ctrl` + `Shift` + `P`. To vyvolá příkazovou lištu, do které zadáme `Create New Terminal`.
 
-⚠️ Pokud se s nějakého záhadného důvodu nacházíte na platformě MS Windows, je třeba přepnout shell terminálu na `Git Bash`. To lze provést pomocí malé rozevírací šiky v pravé části terminálu.
+⚠️ Pokud se z nějakého záhadného důvodu nacházíte na platformě MS Windows, tak je mi vás líto. V tom případě je třeba přepnout shell terminálu na `Git Bash`. To lze provést pomocí malé rozevírací šipky v pravé části terminálu.
 
 ### Jak na našeptávání?
 
-Doporučuji nainstalovat si rozšíření C/C++ od firmy Microsoft s podnadpisem _C/C++ IntelliSense, debugging, and code browsing._. Odkaz na [market place](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+Doporučuji nainstalovat si rozšíření C/C++ od firmy Microsoft s podnadpisem _C/C++ IntelliSense, debugging, and code browsing._ Odkaz na [market place](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
-Toto rozšíření zpřístupní mocnou funkci našeptávání, číž můžeme rapidně zvýšit produktivitu naší práce i usnadnit hledání chyb.
+Toto rozšíření zpřístupní mocnou funkci našeptávání, čímž můžeme rapidně zvýšit produktivitu naší práce i usnadnit hledání chyb.
 
 Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle používané platformy. Následují ukázky tohoto souboru:
 
@@ -176,13 +176,13 @@ Pro korektní funkci toolchainu je třeba do systému nainstalovat tyto programy
 * sdcc
 * vscode
 
-Vřele doporučuji k instalaci využít správce balíčků https://chocolatey.org/, ten obsahuje vše co potřebujeme krom kompilátoru SDCC.
+Vřele doporučuji k instalaci využít správce balíčků https://chocolatey.org/, ten obsahuje vše, co potřebujeme, krom kompilátoru SDCC.
 
 ### Instalace Chocolatey
 
-Doporučuji použít oficiální postup, ten v době psaní tohoto manuálu byl následující:
+Doporučuji použít oficiální postup, který byl v době psaní tohoto manuálu následující:
 
-Spusťit Windows PowerShell jako administrátor systému a do příkazové řádky zadat tento příkaz, který nainstaluje Chocolatey:
+Spustit Windows PowerShell jako administrátor systému a do příkazové řádky zadat tento příkaz, který nainstaluje Chocolatey:
 
 ```ps
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
