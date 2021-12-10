@@ -187,17 +187,51 @@ sudo apt install ./cesta_k_balicku_code.deb
 
 Po instalaci bude automaticky do systému přidán i repozitář pro aktualizace a certifikát, pro validaci balíčků.
 
+### Kompilace `openocd`
+
+OpenOCD je nástroj, který slouží ke komunikaci s programátory a debugery. V tomhle toolchainu je použit pro flashování FW do MCU.
+
+Pokud byste chtěli používat aktuální verzi tohoto nástroje, je velmi jednoduché si jej zkompilovat ze zdrojových souborů.
+
+Oficiální zrcadlo `git` repozitáře Open OCD je hostován na https://github.com/openocd-org/openocd. Pokud si jej chceme zkompilovat, nejprve si jej naklonujeme:
+
+```bash
+git clone https://github.com/openocd-org/openocd.git
+```
+
+Nejprve přejdeme do složky s `openocd`:
+
+```bash
+cd openocd
+```
+
+Poté můžeme zahájit kompilaci. Nejprve pomocí příkazu `./bootstrap` stáhneme závislosti a cygeneruje `./configure`.
+
+```bash
+./bootstrap
+```
+
+Příkaz `./configure` zkontroluje závislosti a vygeneruje `Makefile`. Můžeme mu explicitně říci, které zařízení budeme potřebovat a podle toho se upraví `Makefile`. Pokud bychom chtěli získat přehled konfiguračních možností, můžeme použít příkaz `./configure --help`.
+
+```bash
+./configure --enable-stlink --enable-ft232r --enable-ftdi
+```
+
+Poté již můžeme zahájit kompilaci.
+
+```bash
+make
+```
+
+Po kompilaci nainstalujeme vytvořené soubory do systému.
+
+```bash
+sudo make install
+```
+
 ## 💩 Instalace na MS Windows
 
-Pro korektní funkci toolchainu je třeba do systému nainstalovat tyto programy:
-
-* git
-* bash
-* make
-* openocd
-* gcc
-* sdcc
-* vscode
+V této části bude popsána instalace všech programů pro korektní funkci toolchainu na MS Windows.
 
 Vřele doporučuji k instalaci využít správce balíčků https://chocolatey.org/, ten obsahuje vše, co potřebujeme, krom kompilátoru SDCC.
 
@@ -218,14 +252,10 @@ Po  úspěšné instalaci bude v systému dostupný příkaz `choco`. Díky něm
 Do administrátorského PowerShellu zadat tyto příkazy:
 
 ```powershell
-choco install git
-choco install make
-choco install openocd
-choco install vscode
-choco install mingw
+choco install git make openocd vscode mingw
 ```
 
-> Balíček `git` obsahuje i `bash`, ten tedy není v samostatném balíčku.
+> Balíček `git` obsahuje i `bash`.
 
 > Balíček `mingw` obsahuje kompilátor `gcc`, jenž je využit při našeptávání.
 
