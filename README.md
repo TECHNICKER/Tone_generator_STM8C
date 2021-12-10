@@ -103,7 +103,7 @@ Toto rozšíření zpřístupní mocnou funkci našeptávání, čímž můžeme
 Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle používané platformy. Následují ukázky tohoto souboru:
 
 <details>
-<summary markdown="span"> Ukázková verze pro Linux </summary>
+<summary> Ukázková verze pro Linux </summary>
 
 ```json
 {
@@ -134,7 +134,7 @@ Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/
 </details>
 
 <details>
-<summary markdown="span"> Ukázková verze pro MS Windows </summary>
+<summary> Ukázková verze pro MS Windows </summary>
 
 ```json
 {
@@ -184,7 +184,7 @@ Doporučuji použít oficiální postup, který byl v době psaní tohoto manuá
 
 Spustit Windows PowerShell jako administrátor systému a do příkazové řádky zadat tento příkaz, který nainstaluje Chocolatey:
 
-```ps
+```powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
