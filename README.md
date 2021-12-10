@@ -103,7 +103,7 @@ Toto rozšíření zpřístupní mocnou funkci našeptávání, čímž můžeme
 Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/c_cpp_properties.json` a případně jej upravit dle používané platformy. Následují ukázky tohoto souboru:
 
 <details>
-<summary> Ukázková verze pro Linux </summary>
+<summary markdown="span"> Ukázková verze pro Linux </summary>
 
 ```json
 {
@@ -134,7 +134,7 @@ Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/
 </details>
 
 <details>
-<summary> Ukázková verze pro MS Windows </summary>
+<summary markdown="span"> Ukázková verze pro MS Windows </summary>
 
 ```json
 {
