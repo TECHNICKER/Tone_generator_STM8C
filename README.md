@@ -165,9 +165,61 @@ Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/
 
 </details>
 
-## 🐧 Instalace na Debianu a jeho derivátech
+## 🐧 Instalace na Debianu a jeho derivátech (Ubuntu, Mint, ...)
 
 > Bude brzy doplněno...
+
+### Instalace pomocí balíčků
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install sdcc sdcc-libraries git make openocd
+```
+
+### Instalace VS Code
+
+Budou zde popsány dvě instalační metody, pro jednoduchost bych převážně začátečníkům doporučil tu první.
+
+#### Snadnější cesta
+
+Ve výchozí instalaci systému není repozitář, který by obsahoval balíček `code`. Nejsnadnější cesta je stáhnout si `*.deb` balíček obsahující `code` přímo s [oficiálních stránek](https://code.visualstudio.com/). A ten poté nainstalovat:
+
+```bash
+sudo apt install ./cesta_k_balicku_code.deb
+```
+
+Po instalaci bude automaticky do systému přidán i repozitář pro aktualizace a certifikát, pro validaci balíčků.
+
+#### Pokročilá instalace
+
+Druhou cestou je udělat tyto kroky ručně. Nejprve je nutné stáhnout a nainstalovat do systému certifikát, kterým se bude moci ověřit pravost balíčku obsahujícím `code` a přidat nový repozitář do `/etc/apt/sources.list.d/vscode.list`, který nám zpřístupní instalaci a pozdější aktualizace `code`.
+
+```bash
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+```
+
+Nainstalujeme podporu `HTTPS` pro `apt`:
+
+```bash
+sudo apt install apt-transport-https
+```
+
+Aktualizuje balíčkovou mezipaměť:
+
+```bash
+sudo apt update
+```
+
+A nakonec již můžeme nainstalovat `code`:
+
+```bash
+sudo apt install code
+```
+
 
 ## 💩 Instalace na MS Windows
 
