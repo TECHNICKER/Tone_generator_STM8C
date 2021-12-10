@@ -189,6 +189,9 @@ Po instalaci bude automaticky do systému přidán i repozitář pro aktualizace
 
 ### Kompilace `openocd`
 
+<details>
+<summary> Dozvědět se více </summary>
+
 OpenOCD je nástroj, který slouží ke komunikaci s programátory a debugery. V tomhle toolchainu je použit pro flashování FW do MCU.
 
 Pokud byste chtěli používat aktuální verzi tohoto nástroje, je velmi jednoduché si jej zkompilovat ze zdrojových souborů.
@@ -229,11 +232,11 @@ Po kompilaci nainstalujeme vytvořené soubory do systému.
 sudo make install
 ```
 
+</details>
+
 ## 💩 Instalace na MS Windows
 
-V této části bude popsána instalace všech programů pro korektní funkci toolchainu na MS Windows.
-
-Vřele doporučuji k instalaci využít správce balíčků https://chocolatey.org/, ten obsahuje vše, co potřebujeme, krom kompilátoru SDCC.
+V této části bude popsána instalace všech programů pro korektní funkci toolchainu na MS Windows. Vřele doporučuji k instalaci využít správce balíčků https://chocolatey.org/, ten obsahuje vše, co potřebujeme, krom kompilátoru SDCC.
 
 ### Instalace Chocolatey
 
