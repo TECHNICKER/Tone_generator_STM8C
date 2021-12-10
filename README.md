@@ -173,6 +173,7 @@ Pro korektní funkci toolchainu je třeba do systému nainstalovat tyto programy
 * bash
 * make
 * openocd
+* gcc
 * sdcc
 * vscode
 
@@ -199,9 +200,12 @@ choco install git
 choco install make
 choco install openocd
 choco install vscode
+choco install mingw
 ```
 
-Balíček `git` obsahuje i `bash`, ten tedy není v samostatném balíčku.
+> Balíček `git` obsahuje i `bash`, ten tedy není v samostatném balíčku.
+
+> Balíček `mingw` obsahuje kompilátor `gcc`, jenž je využit při našeptávání.
 
 ### Instalace kompilátoru SDCC
 
