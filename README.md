@@ -165,7 +165,7 @@ Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/
 
 </details>
 
-## 🚽☣️ Instalace na MS Windows
+## 💩 Instalace na MS Windows
 
 Pro korektní funkci toolchainu je třeba do systému nainstalovat tyto programy:
 
