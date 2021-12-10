@@ -2,7 +2,7 @@
 
 Šablona projektu k vývoji firmwaru pro mikrokontroléry z rodiny STM8S.
 
-## Jak to používat, základní info
+## 💣 Jak to používat, základní info
 
 Následují ukázky často používaných akcí / příkazů.
 
@@ -67,7 +67,7 @@ Tento příkaz se chová stejně jako posloupnost příkazů `make` následovan�
 make build_and_flash
 ```
 
-## Doporučený pracovní postup
+## 📎 Doporučený pracovní postup
 
 1. Naklonovat šablonu projektu
 2. Přejmenovat šablonu na jméno projektu
@@ -84,7 +84,7 @@ cd jmeno_projektu
 code .
 ```
 
-## Tipy k VS Code
+## 💡 Tipy k VS Code
 
 VS Code je mocný textový editor, který se snadno rozšíří o nové funkce díky rozšířením. Ta se dají instalovat pomocí ikony bedny v postranním panelu.
 
@@ -165,7 +165,7 @@ Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/
 
 </details>
 
-## Instalace na MS Windows
+## 🚽☣️ Instalace na MS Windows
 
 Pro korektní funkci toolchainu je třeba do systému nainstalovat tyto programy:
 
@@ -195,7 +195,7 @@ Po  úspěšné instalaci bude v systému dostupný příkaz `choco`. Díky něm
 
 Do administrátorského PowerShellu zadat tyto příkazy:
 
-```ps
+```powershell
 choco install git
 choco install make
 choco install openocd
@@ -212,3 +212,17 @@ choco install mingw
 Nakonec je třeba stáhnout a nainstalovat kompilátor `SDCC`, který sídlí na adrese http://sdcc.sourceforge.net/. Instalace probíhá prostřednictvím klasického klikacího formuláře.
 
 
+
+## ❗ Něco po instalaci nefunguje?
+
+Pokud jste pečlivě dodržovali návod a a přesto něco nefunguje, dot možná v této sekci naleznete řešení vašeho problému.
+
+### Nefunguje komunikace s MCU přes `openocd`?
+
+V tom případě jsem zatím odhalil tři možné příčiny chyb:
+
+1. Máte nevhodný USB kabel. Možná je pouze napájecí, nebo příliš dlouhý či polámaný. Nejlepší variantou je krátký stíněný kabel.
+
+2. Máte v počítači poškozený USB port, zkuste použít jiný.
+
+3. Pokud používáte __Win__, je možné že vám v systému bude chybět vhodný ovladač USB, který `openocd` potřebuje ke komunikaci. Nejsnadnější cesta jak jej nainstalovat je prostřednictvím utility [Zadig](https://zadig.akeo.ie/). Při instalaci vyberte připojený programátor (ST-Link) a cílový ovladač nastavte na `libusbK`. Poté potvrďte instalaci ovladače a vyčkejte na jeho nainstalování. Pro zavedení nového ovladače je nutné zařízení od USB odpojit a opět připojit.
