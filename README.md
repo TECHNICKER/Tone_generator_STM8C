@@ -2,7 +2,7 @@
 
 Šablona projektu k vývoji firmwaru pro mikrokontroléry z rodiny STM8S.
 
-## 💣 Jak to používat, základní info
+## 🧮 Jak to používat, základní info
 
 Následují ukázky často používaných akcí / příkazů.
 
@@ -164,6 +164,10 @@ Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/
 ```
 
 </details>
+
+## 🐧 Instalace na Debianu a jeho derivátech
+
+> Bude brzy doplněno...
 
 ## 💩 Instalace na MS Windows
 
