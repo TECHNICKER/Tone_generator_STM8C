@@ -90,7 +90,11 @@ VS Code je mocný textový editor, který se snadno rozšíří o nové funkce d
 
 ### Integrovaný terminál
 
-Přímo ve VS Code se dá vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas strávený přepínáním mezi okny. Zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové zkratky `Ctrl` + `Shift` + `P`. To vyvolá příkazovou lištu, do které zadáme `Create New Terminal`.
+Přímo ve VS Code se dá vytvořit terminál a ten používat ke kompilaci a nahrávání FW. To může ušetřit čas strávený přepínáním mezi okny. Zároveň nám to umožní mít "všechno" v jedné aplikaci. Nový terminál spustíme pomocí klávesové zkratky `Ctrl` + `Shift` + `P`. To vyvolá příkazovou lištu, do které zadáme `Create New Terminal`:
+
+```bash
+>Terminal: Create New Terminal
+```
 
 ⚠️ Pokud se z nějakého záhadného důvodu nacházíte na platformě MS Windows, tak je mi vás líto. V tom případě je třeba přepnout shell terminálu na `Git Bash`. To lze provést pomocí malé rozevírací šipky v pravé části terminálu.
 
@@ -164,6 +168,16 @@ Aby našeptávání fungovalo korektně, je třeba zkontrolovat soubor `.vscode/
 ```
 
 </details>
+
+### Nastavení výchozího shellu
+
+Pokud používáte __Win__, tak po spuštění `code` budete mít pravděpodobně nastaven výchozí shell jako `PowerShell` a pokaždé jej budete ručně přepínat na `git-bash`. Naštěstí se snadno dá nastavit výchozí shell. Ve spuštěném `code` stiskněte `Ctrl` + `Shift` + `P` a do příkazového řádku zadejte `select default profile`:
+
+```bash
+>Terminal: Select Default Profile
+```
+
+Poté si zvolte `bash` jako výchozí shell.
 
 ## 🐧 Instalace na Debianu a jeho derivátech
 
