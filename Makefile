@@ -33,6 +33,7 @@ C_SOURCES = $(wildcard app/src/*.c)
 # C_SOURCES += drivers/src/stm8s_awu.c
 # C_SOURCES += drivers/src/stm8s_beep.c
 # C_SOURCES += drivers/src/stm8s_can.c
+C_SOURCES += drivers/src/stm8s_conf.c
 C_SOURCES += drivers/src/stm8s_clk.c
 # C_SOURCES += drivers/src/stm8s_exti.c
 # C_SOURCES += drivers/src/stm8s_flash.c
