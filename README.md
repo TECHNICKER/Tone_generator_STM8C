@@ -22,6 +22,14 @@ Doporučuji si každý projekt vhodně (nejlépe popisně) pojmenovat. Může to
 mv stm8-tools blikac
 ```
 
+### Fígl - klonování s přejmenování
+
+Stejného výsledku jako s použitím posloupnosti příkazů `git clone` a `mv` lze dosáhnou i tak, že na konec příkazu `git clone` za `URL` repozitáře vložím jak chci, aby se repozitář jmenoval na mém disku.
+
+```
+git clone https://gitlab.com/wykys/stm8-tools.git blikac
+```
+
 ### Změna složky
 
 Příkaz `cd` (__Change Directory__) změní aktuální složku, ve které se nacházíme, za jinou. Tedy nám to umožní pohyb mezi složkami.
