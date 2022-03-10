@@ -288,10 +288,12 @@ Pokud jste pečlivě dodržovali návod a a přesto něco nefunguje, možná v t
 
 ### Nefunguje komunikace s MCU přes `openocd`?
 
-V tom případě jsem zatím odhalil tři možné příčiny chyb:
+V tom případě jsem zatím odhalil následující možné příčiny chyb:
 
 1. Máte nevhodný USB kabel. Možná je pouze napájecí, nebo příliš dlouhý či polámaný. Nejlepší variantou je krátký stíněný kabel.
 
 2. Máte v počítači poškozený USB port, zkuste použít jiný.
 
 3. Pokud používáte __Win__, je možné že vám v systému bude chybět vhodný ovladač USB, který `openocd` potřebuje ke komunikaci. Nejsnadnější cesta jak jej nainstalovat je prostřednictvím utility [Zadig](https://zadig.akeo.ie/). Při instalaci vyberte připojený programátor (ST-Link) a cílový ovladač nastavte na `libusbK`. Poté potvrďte instalaci ovladače a vyčkejte na jeho nainstalování. Pro zavedení nového ovladače je nutné zařízení od USB odpojit a opět připojit.
+
+4. Zkuste si naklonovat nejnovější verzi, i tento repozitář se občas vyvíjí a přidává nové funkce a opravuje chyby...

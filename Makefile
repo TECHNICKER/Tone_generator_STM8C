@@ -54,12 +54,19 @@ C_SOURCES += drivers/src/stm8s_gpio.c
 ########################################
 # Tools
 ########################################
-ifeq ($(OS),Windows_NT)
-    SDCC_PATH = "/c/Program Files/SDCC"
-	OPENOCD = openocd -f interface/stlink.cfg -f target/stm8s.cfg -f stm8s-flash.cfg
+
+ifeq ($(findstring 2019, $(shell openocd --version 2>&1)), 2019)
+    SWIM = stlink
 else
-   SDCC_PATH = /opt/sdcc/
-	OPENOCD = openocd -f interface/stlink-dap.cfg -f target/stm8s.cfg -f stm8s-flash.cfg
+    SWIM = stlink-dap
+endif
+
+OPENOCD = openocd -f interface/$(SWIM).cfg -f target/stm8s.cfg -f stm8s-flash.cfg
+
+ifeq ($(OS),Windows_NT)
+    SDCC_PATH = /c/Program Files/SDCC
+else
+    SDCC_PATH = /opt/sdcc/
 endif
 
 CC = $(SDCC_PATH)/bin/sdcc
