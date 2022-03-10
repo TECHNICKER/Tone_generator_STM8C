@@ -22,7 +22,7 @@ Doporučuji si každý projekt vhodně (nejlépe popisně) pojmenovat. Může to
 mv stm8-tools blikac
 ```
 
-### Fígl - klonování s přejmenování
+### Fígl - klonování s přejmenováním
 
 Stejného výsledku jako s použitím posloupnosti příkazů `git clone` a `mv` lze dosáhnou i tak, že na konec příkazu `git clone` za `URL` repozitáře vložím jak chci, aby se repozitář jmenoval na mém disku.
 
