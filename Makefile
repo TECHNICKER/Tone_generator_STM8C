@@ -66,7 +66,7 @@ OPENOCD = openocd -f interface/$(SWIM).cfg -f target/stm8s.cfg -f stm8s-flash.cf
 ifeq ($(OS),Windows_NT)
     SDCC_PATH = "/c/Program Files/SDCC"
 else
-    SDCC_PATH = /opt/sdcc/
+    SDCC_PATH = /opt/sdcc
 endif
 
 CC = $(SDCC_PATH)/bin/sdcc
