@@ -8,10 +8,12 @@ int prev_states[2];
 int curr_states[2];
 int tones[12];
 int decoder[12];
+int ARR_counter;
 int index;
 
 extern int prev_states[2] = {0, 0,};
 extern int curr_states[2] = {0, 0,};
+extern int ARR_counter = 0;
 extern int index = 0;
 
 extern int tones[12] = {
@@ -55,16 +57,15 @@ void display_upate(int index)
     {
         GPIO_WriteHigh(GPIOG, GPIO_PIN_2);
         GPIO_Write(GPIOC, decoder[index]);
-        delay(500);
     }
     else
     {
-        GPIO_WriteHigh(GPIOG, GPIO_PIN_2);
-        GPIO_Write(GPIOC, decoder[index]);
-        delay(500);
-        GPIO_WriteLow(GPIOG, GPIO_PIN_2);
         GPIO_WriteHigh(GPIOG, GPIO_PIN_3);
         GPIO_Write(GPIOC, sharp);
+        delay(500);
+        GPIO_WriteLow(GPIOG, GPIO_PIN_3);
+        GPIO_WriteHigh(GPIOG, GPIO_PIN_2);
+        GPIO_Write(GPIOC, decoder[index]);
         delay(500);
     }
 }
@@ -107,20 +108,15 @@ void delay(int range)
 {
     for (int i = 0; i < range; i++);
 }
+   
 
 void main(void)
 {
-    int ARR_counter = 0;
-
-    EXTI_SetExtIntSensitivity(EXTI_PORT_GPIOB, EXTI_SENSITIVITY_FALL_ONLY);
-    ITC_SetSoftwarePriority(ITC_IRQ_PORTB, ITC_PRIORITYLEVEL_0);
-    enableInterrupts();
-
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
     TIM4_TimeBaseInit(TIM4_PRESCALER_1, 250);
     TIM4_Cmd(ENABLE);
 
-    GPIO_Init(GPIOB, GPIO_PIN_0, GPIO_MODE_IN_PU_NO_IT);
+    GPIO_Init(GPIOB, GPIO_PIN_0, GPIO_MODE_IN_PU_IT);
     GPIO_Init(GPIOB, GPIO_PIN_1, GPIO_MODE_IN_PU_NO_IT);
     GPIO_Init(GPIOB, GPIO_PIN_2, GPIO_MODE_IN_PU_NO_IT);
     GPIO_Init(GPIOD, GPIO_PIN_6, GPIO_MODE_OUT_PP_LOW_SLOW);
@@ -134,10 +130,17 @@ void main(void)
         {
             TIM4_ClearFlag(TIM4_FLAG_UPDATE);
             ARR_counter += 1;
-            if(GPIO_ReadInputPin(GPIOB, GPIO_PIN_0) == RESET && ARR_counter == tones[index])
+            if(ARR_counter == tones[index])
             {
-                GPIO_WriteReverse(GPIOD, GPIO_PIN_6);
                 ARR_counter = 0;
+                if(GPIO_ReadInputPin(GPIOB, GPIO_PIN_0) == RESET)
+                {
+                    GPIO_WriteReverse(GPIOD, GPIO_PIN_6);
+                }
+                else
+                {
+                    display_upate(index);
+                }
             }
         }
 
@@ -155,7 +158,6 @@ void main(void)
             if (index < 0)
             {index = 11;}              
         }
-        
-        // display_upate(index);
+    
     }
 }
