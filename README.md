@@ -1,4 +1,4 @@
-## TOTO JE PROJEKT POUZE ZALOŽENÝ NA STM8-TOOLS OD WYKYSE (Jana Vykydala)!
+## TOTO JE PROJEKT POUZE ZALOŽENÝ NA STM8-TOOLS OD WYKYSE (Jana Vykydala)! - samotné tools a ostatní věci nejsou moje, psal jsem pouze main.c soubor
 
 
 
