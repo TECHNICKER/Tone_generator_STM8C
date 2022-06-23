@@ -1,3 +1,7 @@
+## TOTO JE PROJEKT POUZE ZALOŽENÝ NA STM8-TOOLS OD WYKYSE (Jana Vykydala)!
+
+
+
 # STM8 Tools
 
 Šablona projektu k vývoji firmwaru pro mikrokontroléry z rodiny STM8S.
